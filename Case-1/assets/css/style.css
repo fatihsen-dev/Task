@@ -1,0 +1,881 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: "Inter", sans-serif;
+  outline: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  background: #eee;
+}
+
+.container {
+  padding: 20px;
+  display: flex;
+  border-radius: 3px;
+  overflow: hidden;
+  background: #fff;
+}
+.container > input[type=radio] {
+  display: none;
+}
+.container > input[type=radio]#button:checked ~ .main > .component-button {
+  display: flex;
+}
+.container > input[type=radio]#button:checked ~ .sidebar > [for=button] > span:last-child {
+  border-left: 5px solid #fff;
+  background: rgba(54, 60, 95, 0.85);
+}
+.container > input[type=radio]#searchBox:checked ~ .main > .component-searchBox {
+  display: flex;
+}
+.container > input[type=radio]#searchBox:checked ~ .sidebar > [for=searchBox] > span:last-child {
+  border-left: 5px solid #fff;
+  background: rgba(54, 60, 95, 0.85);
+}
+.container > input[type=radio]#login:checked ~ .main > .component-login {
+  display: flex;
+}
+.container > input[type=radio]#login:checked ~ .sidebar > [for=login] > span:last-child {
+  border-left: 5px solid #fff;
+  background: rgba(54, 60, 95, 0.85);
+}
+.container > input[type=radio]#steps:checked ~ .main > .component-steps {
+  display: flex;
+}
+.container > input[type=radio]#steps:checked ~ .sidebar > [for=steps] > span:last-child {
+  border-left: 5px solid #fff;
+  background: rgba(54, 60, 95, 0.85);
+}
+.container > input[type=radio]#socialMediaIcon:checked ~ .main > .component-socialMediaIcon {
+  display: flex;
+}
+.container > input[type=radio]#socialMediaIcon:checked ~ .sidebar > [for=socialMediaIcon] > span:last-child {
+  border-left: 5px solid #fff;
+  background: rgba(54, 60, 95, 0.85);
+}
+.container > input[type=radio]#checkbox:checked ~ .main > .component-checkbox {
+  display: flex;
+}
+.container > input[type=radio]#checkbox:checked ~ .sidebar > [for=checkbox] > span:last-child {
+  border-left: 5px solid #fff;
+  background: rgba(54, 60, 95, 0.85);
+}
+.container > input[type=radio]#calender:checked ~ .main > .component-calender {
+  display: flex;
+}
+.container > input[type=radio]#calender:checked ~ .sidebar > [for=calender] > span:last-child {
+  border-left: 5px solid #fff;
+  background: rgba(54, 60, 95, 0.85);
+}
+.container > input[type=radio]#divContainer:checked ~ .main > .component-divContainer {
+  display: flex;
+}
+.container > input[type=radio]#divContainer:checked ~ .sidebar > [for=divContainer] > span:last-child {
+  border-left: 5px solid #fff;
+  background: rgba(54, 60, 95, 0.85);
+}
+.container > input[type=radio]#comboBox:checked ~ .main > .component-comboBox {
+  display: flex;
+}
+.container > input[type=radio]#comboBox:checked ~ .sidebar > [for=comboBox] > span:last-child {
+  border-left: 5px solid #fff;
+  background: rgba(54, 60, 95, 0.85);
+}
+.container .sidebar {
+  display: flex;
+  border: 1px solid #ddd;
+  flex-direction: column;
+  padding: 8px;
+  gap: 8px;
+}
+.container .sidebar label {
+  color: #fff;
+  font-weight: 300;
+  width: 170px;
+  display: flex;
+  cursor: pointer;
+  user-select: none;
+}
+.container .sidebar label:hover > span:last-child {
+  border-left: 5px solid #fff;
+  background: rgba(54, 60, 95, 0.95);
+}
+.container .sidebar label > span:first-child {
+  background: #6EBE45;
+  border-radius: 1px 0 0 1px;
+  width: 12px;
+  height: 100%;
+}
+.container .sidebar label > span:last-child {
+  transition: 0.15s;
+  background: #363C5F;
+  padding: 6px 6px;
+  flex: 1;
+  border-left: 0px solid #fff;
+}
+.container .main {
+  height: 500px;
+  width: 800px;
+  border: 1px solid #ddd;
+  border-left: none;
+  position: relative;
+  flex: 1;
+}
+.container .main .component {
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  padding: 8px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  background: #fff;
+}
+.container .main .component.component-button button {
+  position: absolute;
+  width: 300px;
+  height: 62px;
+  background: transparent;
+  border-radius: 55px;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: #0C5576;
+  border: 4px solid #0692BC;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container .main .component.component-button button::after {
+  content: "";
+  position: absolute;
+  height: 62px;
+  width: 62px;
+  background: #0692BC;
+  border-radius: 55px;
+  left: -4px;
+  transition: 0.15s;
+}
+.container .main .component.component-button button span {
+  z-index: 1;
+}
+.container .main .component.component-button button:hover {
+  color: #fff;
+}
+.container .main .component.component-button button:hover::after {
+  width: 300px;
+}
+.container .main .component.component-searchBox > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.container .main .component.component-searchBox > div > input {
+  font-size: 16px;
+  border: 1px solid #0C5576;
+  border-radius: 62px;
+  padding: 14px;
+  caret-color: #0C5576;
+  transition: 0.15s;
+}
+.container .main .component.component-searchBox > div > input:focus {
+  padding-left: 65px;
+}
+.container .main .component.component-searchBox > div > input:focus ~ span {
+  display: flex;
+}
+.container .main .component.component-searchBox > div > input:focus ~ svg rect {
+  transition: 0.5s 0.15s;
+  stroke-dashoffset: 0;
+}
+.container .main .component.component-searchBox > div > span {
+  position: absolute;
+  left: 14px;
+  color: #0C5576;
+  pointer-events: none;
+  display: none;
+}
+.container .main .component.component-searchBox > div img {
+  position: absolute;
+  pointer-events: none;
+  width: 24px;
+  right: 14px;
+}
+.container .main .component.component-searchBox > div svg {
+  position: absolute;
+  pointer-events: none;
+  z-index: 2;
+}
+.container .main .component.component-searchBox > div svg rect {
+  stroke-dasharray: 703;
+  stroke-dashoffset: 703;
+  pointer-events: none;
+}
+.container .main .component.component-login {
+  flex-direction: column;
+  gap: 20px;
+}
+.container .main .component.component-login > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.container .main .component.component-login > div > input {
+  font-size: 16px;
+  border: 1px solid #0C5576;
+  border-radius: 62px;
+  padding: 14px;
+  color: #0C5576;
+  caret-color: #0C5576;
+  transition: 0.15s;
+  padding-left: 40px;
+}
+.container .main .component.component-login > div > input:focus {
+  padding-left: 90px;
+  background: #efefef;
+}
+.container .main .component.component-login > div > input:focus ~ span {
+  display: flex;
+}
+.container .main .component.component-login > div > input:focus ~ svg rect {
+  transition: 0.5s 0.15s;
+  stroke-dashoffset: 0;
+}
+.container .main .component.component-login > div > span {
+  position: absolute;
+  left: 37px;
+  color: #0C5576;
+  pointer-events: none;
+  display: none;
+}
+.container .main .component.component-login > div > img {
+  position: absolute;
+  pointer-events: none;
+  left: 14px;
+  width: 14px;
+}
+.container .main .component.component-login > div button {
+  position: absolute;
+  border: none;
+  background: transparent;
+  right: 14px;
+  cursor: pointer;
+}
+.container .main .component.component-login > div button img {
+  width: 14px;
+}
+.container .main .component.component-login > div button img.lockEye {
+  display: none;
+}
+.container .main .component.component-login > div button.show .lockEye {
+  display: inline-block;
+}
+.container .main .component.component-login > div button.show .showEye {
+  display: none;
+}
+.container .main .component.component-login > div svg {
+  position: absolute;
+  pointer-events: none;
+  z-index: 2;
+}
+.container .main .component.component-login > div svg rect {
+  stroke-dasharray: 744;
+  stroke-dashoffset: 744;
+  pointer-events: none;
+}
+.container .main .component.component-steps .step-line {
+  display: flex;
+  align-items: center;
+  gap: 110px;
+  background: #ddd;
+  padding: 2px 20px;
+  border-radius: 5px;
+  user-select: none;
+  position: relative;
+}
+.container .main .component.component-steps .step-line::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 15px;
+  width: 100%;
+  height: 20px;
+  background: #fff;
+}
+.container .main .component.component-steps .step-line > div {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  cursor: pointer;
+  border-radius: 50%;
+  background: #111;
+  transition: 0.15s;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container .main .component.component-steps .step-line > div:focus {
+  background: #6EBE45;
+}
+.container .main .component.component-steps .step-line > div:focus > span {
+  height: 80px;
+  border-radius: 50%;
+  bottom: 40px;
+}
+.container .main .component.component-steps .step-line > div:focus > span > span {
+  background-color: #6EBE45;
+}
+.container .main .component.component-steps .step-line > div:focus > span::before {
+  background: #6EBE45;
+}
+.container .main .component.component-steps .step-line > div > span {
+  position: absolute;
+  white-space: nowrap;
+  color: #fff;
+  border-radius: 20px;
+  width: 80px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 20px;
+  transition: 0.15s;
+}
+.container .main .component.component-steps .step-line > div > span span {
+  z-index: 1;
+  display: inline-block;
+  background: #0692BC;
+  height: inherit;
+  width: inherit;
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100px;
+}
+.container .main .component.component-steps .step-line > div > span::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  width: 80px;
+  height: 80px;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  z-index: -1;
+  ransition: 0s;
+}
+.container .main .component.component-socialMediaIcon {
+  flex-direction: column;
+  gap: 40px;
+}
+.container .main .component.component-socialMediaIcon > ul {
+  display: flex;
+  gap: 10px;
+}
+.container .main .component.component-socialMediaIcon > ul li:hover a > .normal {
+  opacity: 0;
+  transform: scale(0);
+}
+.container .main .component.component-socialMediaIcon > ul li:hover a > .hovered {
+  display: inline-block;
+  opacity: 1;
+  transform: scale(1);
+}
+.container .main .component.component-socialMediaIcon > ul li a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+}
+.container .main .component.component-socialMediaIcon > ul li a > img {
+  width: 40px;
+  height: 40px;
+}
+.container .main .component.component-socialMediaIcon > ul li a > .normal {
+  position: absolute;
+  transition: 0.3s;
+}
+.container .main .component.component-socialMediaIcon > ul li a > .hovered {
+  transition: 0.3s;
+  position: absolute;
+  opacity: 0;
+  transform: scale(0);
+}
+.container .main .component.component-checkbox {
+  flex-direction: column;
+  gap: 20px;
+}
+.container .main .component.component-checkbox > div {
+  display: flex;
+  gap: 50px;
+}
+.container .main .component.component-checkbox > div > label {
+  display: flex;
+  cursor: pointer;
+  position: relative;
+}
+.container .main .component.component-checkbox > div > label > input {
+  appearance: none;
+}
+.container .main .component.component-checkbox > div > label > input:checked + span::before {
+  opacity: 1;
+  transform: rotate(0deg);
+}
+.container .main .component.component-checkbox > div > label > input:disabled + span::before {
+  opacity: 0.4;
+  border: none;
+  background: #aaa;
+}
+.container .main .component.component-checkbox > div > label span {
+  position: relative;
+  display: inline-flex;
+  padding-left: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container .main .component.component-checkbox > div > label span::before {
+  box-sizing: border-box;
+  transition: 0.1s;
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #265473;
+  opacity: 1;
+  left: 0;
+  transform: rotate(45deg);
+}
+.container .main .component.component-checkbox > div > label b {
+  display: inline-block;
+  position: absolute;
+  width: 11px;
+  height: 2.4px;
+  left: 7px;
+  top: 9px;
+  background: #fff;
+  transform: rotate(-45deg);
+  border-radius: 1px;
+  opacity: 0;
+}
+.container .main .component.component-checkbox > div > label b::before {
+  content: "";
+  position: absolute;
+  width: 7px;
+  height: 2.4px;
+  background: inherit;
+  transform: rotate(90deg);
+  border-radius: 1px;
+  left: -3px;
+  top: -3px;
+}
+.container .main .component.component-checkbox .radio label > input {
+  appearance: none;
+}
+.container .main .component.component-checkbox .radio label > input:checked + span::before {
+  border: 5px solid #265473;
+  opacity: 1;
+}
+.container .main .component.component-checkbox .radio label span::before {
+  border-radius: 50%;
+}
+.container .main .component.component-checkbox .checkbox label > input {
+  appearance: none;
+}
+.container .main .component.component-checkbox .checkbox label > input:checked ~ span::before {
+  background: #265473;
+}
+.container .main .component.component-checkbox .checkbox label > input:checked ~ b {
+  opacity: 1;
+}
+.container .main .component.component-checkbox .checkbox label span::before {
+  border-radius: 3px;
+}
+.container .main .component.component-calender > .calender-container {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-direction: column;
+  gap: 20px;
+  user-select: none;
+}
+.container .main .component.component-calender > .calender-container:focus-within > div {
+  opacity: 1;
+  pointer-events: auto;
+}
+.container .main .component.component-calender > .calender-container > button {
+  background: #0C5576;
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  cursor: pointer;
+  margin: 0 auto;
+}
+.container .main .component.component-calender > .calender-container > button > img {
+  width: 16px;
+}
+.container .main .component.component-calender > .calender-container > div {
+  display: flex;
+  opacity: 0;
+  pointer-events: none;
+  flex-direction: column;
+  gap: 15px;
+  transition: 0.2s opacity;
+}
+.container .main .component.component-calender > .calender-container > div .calender-left-right {
+  background: #D9DAE3;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 50px;
+  padding: 12px 15px;
+  align-items: center;
+  color: #0C5576;
+  position: relative;
+  margin: 0 auto;
+  gap: 20px;
+}
+.container .main .component.component-calender > .calender-container > div .calender-left-right::before {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: inherit;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  z-index: -1;
+  top: -8px;
+}
+.container .main .component.component-calender > .calender-container > div .calender-left-right button {
+  background: transparent;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.container .main .component.component-calender > .calender-container > div .calender-left-right button img {
+  width: 10px;
+}
+.container .main .component.component-calender > .calender-container > div .calender-days {
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(7, auto);
+  color: #0C5576;
+  border: 1px solid #898CA4;
+  border-radius: 8px;
+  padding: 10px;
+  gap: 2px;
+}
+.container .main .component.component-calender > .calender-container > div .calender-days > li {
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: 0.15s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container .main .component.component-calender > .calender-container > div .calender-days > li:hover {
+  background: #eee;
+}
+.container .main .component.component-calender > .calender-container > div .calender-days > li.active {
+  background: #6EBE45;
+  color: #fff;
+}
+.container .main .component.component-calender > .calender-container > div .calender-days > li.inactive {
+  color: #aaa;
+}
+.container .main .component.component-divContainer > input {
+  display: none;
+}
+.container .main .component.component-divContainer > input:checked ~ .login-register-container > .login {
+  left: -100%;
+}
+.container .main .component.component-divContainer > input:checked ~ .login-register-container > .register {
+  left: 0;
+}
+.container .main .component.component-divContainer .login-register-container {
+  width: 450px;
+  height: 450px;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+.container .main .component.component-divContainer .login-register-container > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 100%;
+  width: 100%;
+  min-height: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+  transition: 0.3s;
+  background: #fff;
+}
+.container .main .component.component-divContainer .login-register-container > div.login {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.container .main .component.component-divContainer .login-register-container > div.login > button {
+  border: none;
+  width: 280px;
+  font-size: 18px;
+  background: #0692BC;
+  color: #fff;
+  font-weight: bold;
+  padding: 14px 0;
+  border-radius: 50px;
+  cursor: pointer;
+}
+.container .main .component.component-divContainer .login-register-container > div.login > button:hover {
+  background: rgba(6, 146, 188, 0.9);
+}
+.container .main .component.component-divContainer .login-register-container > div.login > label {
+  text-decoration: underline;
+  color: #0C5576;
+  font-size: 14px;
+  cursor: pointer;
+}
+.container .main .component.component-divContainer .login-register-container > div.login > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.container .main .component.component-divContainer .login-register-container > div.login > div > input {
+  font-size: 16px;
+  border: 1px solid #0C5576;
+  border-radius: 62px;
+  padding: 14px;
+  color: #0C5576;
+  caret-color: #0C5576;
+  transition: 0.15s;
+  padding-left: 40px;
+}
+.container .main .component.component-divContainer .login-register-container > div.login > div > input:focus {
+  padding-left: 90px;
+  background: #efefef;
+}
+.container .main .component.component-divContainer .login-register-container > div.login > div > input:focus ~ span {
+  display: flex;
+}
+.container .main .component.component-divContainer .login-register-container > div.login > div > input:focus ~ svg rect {
+  transition: 0.5s 0.15s;
+  stroke-dashoffset: 0;
+}
+.container .main .component.component-divContainer .login-register-container > div.login > div > span {
+  position: absolute;
+  left: 37px;
+  color: #0C5576;
+  pointer-events: none;
+  display: none;
+}
+.container .main .component.component-divContainer .login-register-container > div.login > div > img {
+  position: absolute;
+  pointer-events: none;
+  left: 14px;
+  width: 18px;
+}
+.container .main .component.component-divContainer .login-register-container > div.login > div button {
+  position: absolute;
+  border: none;
+  background: transparent;
+  right: 14px;
+  cursor: pointer;
+}
+.container .main .component.component-divContainer .login-register-container > div.login > div button img {
+  width: 20px;
+}
+.container .main .component.component-divContainer .login-register-container > div.login > div button img.lockEye {
+  display: none;
+}
+.container .main .component.component-divContainer .login-register-container > div.login > div button.show .lockEye {
+  display: inline-block;
+}
+.container .main .component.component-divContainer .login-register-container > div.login > div button.show .showEye {
+  display: none;
+}
+.container .main .component.component-divContainer .login-register-container > div.login > div svg {
+  position: absolute;
+  pointer-events: none;
+  z-index: 2;
+}
+.container .main .component.component-divContainer .login-register-container > div.login > div svg rect {
+  stroke-dasharray: 744;
+  stroke-dashoffset: 744;
+  pointer-events: none;
+}
+.container .main .component.component-divContainer .login-register-container > div.register {
+  left: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  gap: 20px;
+}
+.container .main .component.component-divContainer .login-register-container > div.register > label {
+  position: absolute;
+  left: 0;
+  top: 0;
+  cursor: pointer;
+}
+.container .main .component.component-divContainer .login-register-container > div.register > button {
+  border: none;
+  width: 330px;
+  font-size: 18px;
+  background: #0692BC;
+  color: #fff;
+  font-weight: bold;
+  padding: 14px 0;
+  border-radius: 50px;
+  cursor: pointer;
+}
+.container .main .component.component-divContainer .login-register-container > div.register > button:hover {
+  background: rgba(6, 146, 188, 0.9);
+}
+.container .main .component.component-divContainer .login-register-container > div.register > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.container .main .component.component-divContainer .login-register-container > div.register > div > input {
+  font-size: 16px;
+  border: 1px solid #0C5576;
+  border-radius: 62px;
+  padding: 14px;
+  color: #0C5576;
+  caret-color: #0C5576;
+  transition: 0.15s;
+  width: 330px;
+}
+.container .main .component.component-divContainer .login-register-container > div.register > div > input::placeholder {
+  color: #0C5576;
+}
+.container .main .component.component-divContainer .login-register-container > div.register > div > input:focus {
+  background: #efefef;
+}
+.container .main .component.component-divContainer .login-register-container > div.register > div > input:focus ~ svg rect {
+  transition: 0.5s 0.15s;
+  stroke-dashoffset: 0;
+}
+.container .main .component.component-divContainer .login-register-container > div.register > div button {
+  position: absolute;
+  border: none;
+  background: transparent;
+  right: 14px;
+  cursor: pointer;
+}
+.container .main .component.component-divContainer .login-register-container > div.register > div button img {
+  width: 16px;
+}
+.container .main .component.component-divContainer .login-register-container > div.register > div button img.lockEye {
+  display: none;
+}
+.container .main .component.component-divContainer .login-register-container > div.register > div button.show .lockEye {
+  display: inline-block;
+}
+.container .main .component.component-divContainer .login-register-container > div.register > div button.show .showEye {
+  display: none;
+}
+.container .main .component.component-divContainer .login-register-container > div.register > div svg {
+  position: absolute;
+  pointer-events: none;
+  z-index: 2;
+}
+.container .main .component.component-divContainer .login-register-container > div.register > div svg rect {
+  stroke-dasharray: 744;
+  stroke-dashoffset: 744;
+  pointer-events: none;
+}
+.container .main .component.component-comboBox > div {
+  display: flex;
+  flex-direction: column;
+  user-select: none;
+}
+.container .main .component.component-comboBox > div:focus-within > ul {
+  display: flex;
+}
+.container .main .component.component-comboBox > div:focus-within > label > img {
+  transform: rotate(90deg);
+}
+.container .main .component.component-comboBox > div > label {
+  width: 340px;
+  padding: 12px;
+  border: 1px solid #0C5576;
+  border-radius: 50px;
+  color: #0C5576;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+.container .main .component.component-comboBox > div > label > img {
+  width: 10px;
+  transition: 0.15s;
+}
+.container .main .component.component-comboBox > div > ul {
+  display: none;
+  flex-direction: column;
+  transition: 0.15s;
+  width: 300px;
+  margin: 0 auto;
+  height: 200px;
+  background: #fff;
+  overflow: auto;
+  border: 1px solid #0C5576;
+  border-top: none;
+  border-radius: 0 0 16px 16px;
+  padding: 10px 20px 20px 20px;
+}
+.container .main .component.component-comboBox > div > ul::-webkit-scrollbar {
+  width: 6px;
+}
+.container .main .component.component-comboBox > div > ul::-webkit-scrollbar-thumb {
+  background: #ddd;
+  border-radius: 2px;
+}
+.container .main .component.component-comboBox > div > ul > li {
+  cursor: pointer;
+  color: #0C5576;
+  padding: 6px 0;
+  transition: 0.15s;
+  border-bottom: 1px solid rgba(112, 112, 112, 0.2);
+}
+.container .main .component.component-comboBox > div > ul > li:hover {
+  font-weight: bold;
+}

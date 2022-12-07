@@ -1,0 +1,763 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap')
+
+@mixin center()
+   display: flex
+   justify-content: center
+   align-items: center
+* 
+   margin: 0
+   padding: 0
+   text-decoration: none
+   list-style: none
+   box-sizing: border-box
+   -webkit-font-smoothing: antialiased
+   -moz-osx-font-smoothing: grayscale
+   font-family: 'Inter', sans-serif
+   outline: none
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button 
+   -webkit-appearance: none
+
+html,
+body,
+#root 
+   height: 100%
+body
+   display: grid
+   place-items: center
+   background: #eee
+.container
+   padding: 20px
+   display: flex
+   border-radius: 3px
+   overflow: hidden
+   background: #fff
+
+   & > input[type="radio"]
+      display: none
+      &#button:checked 
+         & ~ .main > .component-button
+            display: flex
+         & ~ .sidebar > [for="button"]
+            & > span:last-child
+               border-left: 5px solid #fff
+               background: rgb(#363C5F, .85)
+      &#searchBox:checked
+         & ~ .main > .component-searchBox
+            display: flex
+         & ~ .sidebar > [for="searchBox"]
+            & > span:last-child
+               border-left: 5px solid #fff
+               background: rgb(#363C5F, .85)
+      &#login:checked 
+         & ~ .main > .component-login
+            display: flex
+         & ~ .sidebar > [for="login"]
+            & > span:last-child
+               border-left: 5px solid #fff
+               background: rgb(#363C5F, .85)
+      &#steps:checked
+         & ~ .main > .component-steps
+            display: flex
+         & ~ .sidebar > [for="steps"]
+            & > span:last-child
+               border-left: 5px solid #fff
+               background: rgb(#363C5F, .85)
+      &#socialMediaIcon:checked
+         & ~ .main > .component-socialMediaIcon
+            display: flex
+         & ~ .sidebar > [for="socialMediaIcon"]
+            & > span:last-child
+               border-left: 5px solid #fff
+               background: rgb(#363C5F, .85)
+      &#checkbox:checked
+         & ~ .main > .component-checkbox
+            display: flex
+         & ~ .sidebar > [for="checkbox"]
+            & > span:last-child
+               border-left: 5px solid #fff
+               background: rgb(#363C5F, .85)
+      &#calender:checked
+         & ~ .main > .component-calender
+            display: flex
+         & ~ .sidebar > [for="calender"]
+            & > span:last-child
+               border-left: 5px solid #fff
+               background: rgb(#363C5F, .85)
+      &#divContainer:checked
+         & ~ .main > .component-divContainer
+            display: flex
+         & ~ .sidebar > [for="divContainer"]
+            & > span:last-child
+               border-left: 5px solid #fff
+               background: rgb(#363C5F, .85)
+      &#comboBox:checked
+         & ~ .main > .component-comboBox
+            display: flex
+         & ~ .sidebar > [for="comboBox"]
+            & > span:last-child
+               border-left: 5px solid #fff
+               background: rgb(#363C5F, .85)
+
+   .sidebar
+      display: flex
+      border: 1px solid #ddd
+      flex-direction: column
+      padding: 8px
+      gap: 8px
+         
+      label
+         color: #fff
+         font-weight: 300
+         width: 170px
+         display: flex
+         cursor: pointer
+         user-select: none
+         &:hover
+             & > span:last-child
+               border-left: 5px solid #fff
+               background: rgb(#363C5F, .95)
+         & > span
+            &:first-child
+               background: #6EBE45
+               border-radius: 1px 0 0 1px
+               width: 12px
+               height: 100%
+            &:last-child
+               transition: .15s
+               background: #363C5F
+               padding: 6px 6px
+               flex: 1
+               border-left: 0px solid #fff 
+   .main
+      height: 500px
+      width: 800px
+      border: 1px solid #ddd
+      border-left: none
+      position: relative
+      flex: 1
+      .component
+         position: absolute
+         width: inherit
+         height: inherit
+         padding: 8px
+         display: none
+         justify-content: center
+         align-items: center
+         z-index: 1
+         background: #fff
+         &.component-button
+            button
+               position: absolute
+               width: 300px
+               height: 62px
+               background: transparent
+               border-radius: 55px
+               border: none
+               cursor: pointer
+               font-size: 18px
+               color: #0C5576
+               border: 4px solid #0692BC
+               @include center
+               &::after
+                  content: ''
+                  position: absolute
+                  height: 62px
+                  width: 62px
+                  background: #0692BC
+                  border-radius: 55px
+                  left: -4px
+                  transition: .15s
+               span
+                  z-index: 1
+               &:hover
+                  color: #fff
+                  &::after
+                     width: 300px
+         &.component-searchBox
+            & > div
+               @include center
+               position: relative
+               & > input
+                  font-size: 16px
+                  border: 1px solid #0C5576
+                  border-radius: 62px
+                  padding: 14px
+                  caret-color: #0C5576
+                  transition: .15s
+                  &:focus
+                     padding-left: 65px
+                     & ~ span
+                        display: flex
+                     & ~ svg
+                        rect 
+                           transition: 0.5s 0.15s
+                           stroke-dashoffset: 0
+               & > span
+                  position: absolute
+                  left: 14px
+                  color: #0C5576
+                  pointer-events: none
+                  display: none
+               img
+                  position: absolute
+                  pointer-events: none
+                  width: 24px
+                  right: 14px
+               svg 
+                  position: absolute
+                  pointer-events: none
+                  z-index: 2
+                  rect 
+                     stroke-dasharray: 703
+                     stroke-dashoffset: 703
+                     pointer-events: none
+         &.component-login
+            flex-direction: column
+            gap: 20px
+            & > div
+               @include center
+               position: relative
+               & > input
+                  font-size: 16px
+                  border: 1px solid #0C5576
+                  border-radius: 62px
+                  padding: 14px
+                  color: #0C5576
+                  caret-color: #0C5576
+                  transition: .15s
+                  padding-left: 40px
+                  &:focus
+                     padding-left: 90px
+                     background: #efefef
+                     & ~ span
+                        display: flex
+                     & ~ svg
+                        rect 
+                           transition: 0.5s 0.15s
+                           stroke-dashoffset: 0
+               & > span
+                  position: absolute
+                  left: 37px
+                  color: #0C5576
+                  pointer-events: none
+                  display: none
+               & > img
+                     position: absolute
+                     pointer-events: none
+                     left: 14px
+                     width: 14px       
+               button
+                  position: absolute
+                  border: none
+                  background: transparent
+                  right: 14px
+                  cursor: pointer
+                  img
+                     width: 14px
+                     &.lockEye
+                        display: none
+                  &.show
+                     .lockEye
+                        display: inline-block
+                     .showEye
+                        display: none
+               svg 
+                  position: absolute
+                  pointer-events: none
+                  z-index: 2
+                  rect 
+                     stroke-dasharray: 744
+                     stroke-dashoffset: 744
+                     pointer-events: none
+         &.component-steps
+            .step-line
+               display: flex
+               align-items: center
+               gap: 110px
+               background: #ddd
+               padding: 2px 20px
+               border-radius: 5px
+               user-select: none
+               position: relative
+
+               &::before
+                  content: ''
+                  position: absolute
+                  left: 0
+                  top: 15px
+                  width: 100%
+                  height: 20px
+                  background: #fff
+               & > div
+                     display: inline-block
+                     width: 12px
+                     height: 12px
+                     cursor: pointer
+                     border-radius: 50%
+                     background: #111
+                     transition: .15s
+                     position: relative
+                     @include center
+                     &:focus
+                        background: #6EBE45
+                        & > span
+                          height: 80px
+                          border-radius: 50%
+                          bottom: 40px
+                          & > span
+                            background-color: #6EBE45
+                          &::before
+                            background: #6EBE45
+                     & > span
+                        position: absolute
+                        white-space: nowrap
+                        color: #fff
+                        border-radius: 20px
+                        width: 80px
+                        height: 30px
+                        @include center
+                        bottom: 20px
+                        transition: .15s
+                        span
+                           z-index: 1
+                           display: inline-block
+                           background: #0692BC
+                           height: inherit
+                           width: inherit
+                           position: absolute
+                           inset: 0
+                           @include center
+                           border-radius: 100px
+                        &::before
+                           content: ''
+                           position: absolute
+                           z-index: 1
+                           width: 80px
+                           height: 80px
+                           border-radius: 50% 50% 50% 0
+                           transform: rotate(-45deg)
+                           z-index: -1
+                           ransition: 0s 
+         &.component-socialMediaIcon
+            flex-direction: column
+            gap: 40px
+            & > ul
+               display: flex
+               gap: 10px
+               li
+                  &:hover
+                     a
+                        & > .normal
+                           opacity: 0
+                           transform: scale(0)
+                        & > .hovered
+                           display: inline-block
+                           opacity: 1
+                           transform: scale(1)
+                  a
+                     @include center
+                     width: 60px
+                     height: 60px
+                     & > img
+                        width: 40px
+                        height: 40px
+                     & > .normal
+                        position: absolute
+                        transition: .3s
+                     & > .hovered
+                        transition: .3s
+                        position: absolute
+                        opacity: 0
+                        transform: scale(0)
+         &.component-checkbox
+            flex-direction: column
+            gap: 20px
+            & > div
+               display: flex
+               gap: 50px
+               & > label
+                  display: flex
+                  cursor: pointer
+                  position: relative
+                  & > input
+                     &:checked + span
+                        &::before
+                           opacity: 1
+                           transform: rotate(0deg)
+                     &:disabled + span
+                        &::before
+                           opacity: .4
+                           border: none
+                           background: #aaa
+                     appearance: none
+                  span
+                     position: relative
+                     display: inline-flex
+                     padding-left: 25px
+                     @include center()
+                     &::before
+                        box-sizing: border-box
+                        transition: .1s
+                        content: ''
+                        position: absolute
+                        width: 20px
+                        height: 20px
+                        border: 2px solid #265473
+                        opacity: 1
+                        left: 0
+                        transform: rotate(45deg)
+                  b
+                     display: inline-block
+                     position: absolute
+                     width: 11px
+                     height: 2.4px
+                     left: 7px
+                     top: 9px
+                     background: #fff
+                     transform: rotate(-45deg)
+                     border-radius: 1px
+                     opacity: 0
+                     &::before
+                        content: ''
+                        position: absolute
+                        width: 7px
+                        height: 2.4px
+                        background: inherit
+                        transform: rotate(90deg)
+                        border-radius: 1px
+                        left: -3px
+                        top: -3px
+            .radio
+               label
+                  & > input
+                     &:checked + span
+                        &::before
+                           border: 5px solid #265473
+                           opacity: 1
+                     &:disabled + span
+                        &::before
+                     appearance: none
+                  span
+                     &::before
+                        border-radius: 50%
+            .checkbox
+               label
+                  & > input
+                     &:checked ~ span
+                        &::before
+                           background: #265473
+                     &:checked ~ b
+                        opacity: 1
+                     &:disabled + span
+                        &::before
+                     appearance: none
+                  span
+                     &::before
+                        border-radius: 3px
+         &.component-calender
+            & >.calender-container
+                  display: flex
+                  justify-content: center
+                  align-items: stretch
+                  flex-direction: column
+                  gap: 20px
+                  user-select: none
+                  &:focus-within
+                     & > div
+                        opacity: 1
+                        pointer-events: auto
+                  & > button
+                     background: #0C5576
+                     border: none
+                     color: #fff
+                     font-weight: bold
+                     font-size: 20px
+                     padding: 10px 20px
+                     border-radius: 10px
+                     display: flex
+                     align-items: center
+                     gap: 28px
+                     cursor: pointer
+                     margin: 0 auto
+
+                     & > img
+                        width: 16px
+                  & > div
+                     display: flex
+                     opacity: 0
+                     pointer-events: none
+                     flex-direction: column
+                     gap: 15px
+                     transition: .2s opacity
+                     .calender-left-right
+                        background: #D9DAE3
+                        display: flex
+                        justify-content: space-between
+                        border-radius: 50px
+                        padding: 12px 15px
+                        align-items: center
+                        color: #0C5576
+                        position: relative
+                        margin: 0 auto
+                        gap: 20px
+                        &::before
+                           content: ''
+                           position: absolute
+                           width: 30px
+                           height: 30px
+                           background: inherit
+                           left: 50%
+                           transform: translateX(-50%) rotate(45deg)
+                           z-index: -1
+                           top: -8px
+                        button
+                           background: transparent
+                           border: none
+                           @include center()
+                           cursor: pointer
+                           img
+                              width: 10px
+                     .calender-days
+                        margin: 0 auto
+                        display: grid
+                        grid-template-columns: repeat(7,auto)
+                        color: #0C5576
+                        border: 1px solid #898CA4
+                        border-radius: 8px
+                        padding: 10px
+                        gap: 2px
+                        & > li
+                           padding: 5px
+                           cursor: pointer
+                           border-radius: 50%
+                           transition: .15s
+                           @include center()
+                           &:hover
+                              background: #eee
+                           &.active
+                              background: #6EBE45
+                              color: #fff
+                           &.inactive
+                              color: #aaa
+         &.component-divContainer
+            & > input
+                  display: none
+                  &:checked
+                     & ~ .login-register-container
+                        & > .login
+                           left: -100%
+                        & > .register
+                           left: 0
+            .login-register-container
+               width: 450px
+               height: 450px
+               display: flex
+               position: relative
+               overflow: hidden
+               & > div
+                  @include center()
+                  min-width: 100%
+                  width: 100%
+                  min-height: 100%
+                  height: 100%
+                  position: absolute
+                  inset: 0
+                  transition: .3s
+                  background: #fff
+                  &.login
+                     display: flex
+                     flex-direction: column
+                     gap: 20px
+                     & > button
+                           border: none
+                           width: 280px
+                           font-size: 18px
+                           background: #0692BC
+                           color:#fff
+                           font-weight: bold
+                           padding: 14px 0
+                           border-radius: 50px
+                           cursor: pointer
+                           &:hover
+                              background: rgb(#0692BC,.9 )
+                     & > label
+                        text-decoration: underline
+                        color: #0C5576
+                        font-size: 14px
+                        cursor: pointer
+                     & > div
+                        @include center
+                        position: relative
+                        & > input
+                           font-size: 16px
+                           border: 1px solid #0C5576
+                           border-radius: 62px
+                           padding: 14px
+                           color: #0C5576
+                           caret-color: #0C5576
+                           transition: .15s
+                           padding-left: 40px
+                           &:focus
+                              padding-left: 90px
+                              background: #efefef
+                              & ~ span
+                                 display: flex
+                              & ~ svg
+                                 rect 
+                                    transition: 0.5s 0.15s
+                                    stroke-dashoffset: 0
+                        & > span
+                           position: absolute
+                           left: 37px
+                           color: #0C5576
+                           pointer-events: none
+                           display: none
+                        & > img
+                              position: absolute
+                              pointer-events: none
+                              left: 14px
+                              width: 18px
+                        button
+                           position: absolute
+                           border: none
+                           background: transparent
+                           right: 14px
+                           cursor: pointer
+                           img
+                              width: 20px
+                              &.lockEye
+                                 display: none
+                           &.show
+                              .lockEye
+                                 display: inline-block
+                              .showEye
+                                 display: none
+                        svg 
+                           position: absolute
+                           pointer-events: none
+                           z-index: 2
+                           rect 
+                              stroke-dasharray: 744
+                              stroke-dashoffset: 744
+                              pointer-events: none
+                  &.register
+                     left: 100%
+                     display: flex
+                     flex-direction: column
+                     position: relative
+                     gap: 20px
+                     & > label
+                        position: absolute
+                        left: 0
+                        top: 0
+                        cursor: pointer
+                     & > button
+                           border: none
+                           width: 330px
+                           font-size: 18px
+                           background: #0692BC
+                           color:#fff
+                           font-weight: bold
+                           padding: 14px 0
+                           border-radius: 50px
+                           cursor: pointer
+                           &:hover
+                              background: rgb(#0692BC,.9 )
+                     & > div
+                        @include center
+                        position: relative
+                        & > input
+                           font-size: 16px
+                           border: 1px solid #0C5576
+                           border-radius: 62px
+                           padding: 14px
+                           color: #0C5576
+                           caret-color: #0C5576
+                           transition: .15s
+                           width: 330px
+                           &::placeholder
+                              color: #0C5576
+                           &:focus
+                              background: #efefef
+                              & ~ svg
+                                 rect 
+                                    transition: 0.5s 0.15s
+                                    stroke-dashoffset: 0
+                        button
+                           position: absolute
+                           border: none
+                           background: transparent
+                           right: 14px
+                           cursor: pointer
+                           img
+                              width: 16px
+                              &.lockEye
+                                 display: none
+                           &.show
+                              .lockEye
+                                 display: inline-block
+                              .showEye
+                                 display: none
+                        svg 
+                           position: absolute
+                           pointer-events: none
+                           z-index: 2
+                           rect 
+                              stroke-dasharray: 744
+                              stroke-dashoffset: 744
+                              pointer-events: none
+         &.component-comboBox
+            & > div
+               display: flex
+               flex-direction: column
+               user-select: none
+               &:focus-within
+                  & > ul
+                     display: flex
+                  & > label
+                     & > img
+                        transform: rotate(90deg)
+               & > label
+                  width: 340px
+                  padding: 12px
+                  border: 1px solid #0C5576
+                  border-radius: 50px
+                  color: #0C5576
+                  display: flex
+                  align-items: center
+                  justify-content: space-between
+                  cursor: pointer
+
+                  & > img
+                     width: 10px
+                     transition: .15s
+               & > ul
+                  display: none
+                  flex-direction: column
+                  transition: .15s
+                  width: 300px
+                  margin: 0 auto
+                  height: 200px
+                  background: #fff
+                  overflow: auto
+                  border: 1px solid #0C5576
+                  border-top: none
+                  border-radius: 0 0 16px 16px
+                  padding: 10px 20px 20px 20px
+                  &::-webkit-scrollbar 
+                     width: 6px
+                  &::-webkit-scrollbar-thumb 
+                     background: #ddd
+                     border-radius:2px
+                  & > li
+                     cursor: pointer
+                     color: #0C5576
+                     padding: 6px 0 
+                     transition: .15s
+                     border-bottom: 1px solid rgb(#707070, .2)
+                     &:hover
+                        font-weight: bold
+
+                     

@@ -1,0 +1,151 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #111;
+  overflow: hidden;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  background: #f1f7de;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.driver {
+  display: flex;
+  align-items: center;
+  position: relative;
+  left: -350px;
+  animation: drivePerson 5s linear infinite;
+}
+.driver .person {
+  width: 250px;
+}
+.driver .wheel1, .driver .wheel2 {
+  width: 100px;
+  position: absolute;
+  z-index: 2;
+  animation: wheelRotate 3s linear infinite;
+}
+.driver .wheel1.wheel1, .driver .wheel2.wheel1 {
+  bottom: -16px;
+  left: -10px;
+}
+.driver .wheel1.wheel2, .driver .wheel2.wheel2 {
+  bottom: -16px;
+  right: -45px;
+}
+.driver .ground {
+  position: absolute;
+  width: 140%;
+  bottom: -25px;
+  animation: groundAnimation 3s linear infinite alternate;
+}
+
+#particleContainer {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 3;
+}
+#particleContainer > .balloon {
+  position: absolute;
+  width: 50px;
+  bottom: -250px;
+  transition: 0.3s;
+}
+#particleContainer > .balloon:nth-child(1) {
+  width: 43px;
+}
+#particleContainer > .balloon:nth-child(2) {
+  width: 41px;
+}
+#particleContainer > .balloon:nth-child(3) {
+  width: 47px;
+}
+#particleContainer > .balloon:nth-child(4) {
+  width: 45px;
+}
+#particleContainer > .balloon:nth-child(5) {
+  width: 66px;
+}
+#particleContainer > .balloon:nth-child(6) {
+  width: 59px;
+}
+#particleContainer > .balloon.b1 {
+  left: 40%;
+  animation: balloonAnimate 3.5s linear infinite;
+}
+#particleContainer > .balloon.b2 {
+  left: 70%;
+  animation: balloonAnimate 3.5s linear infinite 2s;
+}
+#particleContainer > .balloon.b3 {
+  left: 60%;
+  animation: balloonAnimate 3.5s linear infinite 5s;
+}
+#particleContainer > .balloon.b4 {
+  left: 90%;
+  animation: balloonAnimate 3.5s linear infinite 3s;
+}
+#particleContainer > .balloon.b5 {
+  left: 10%;
+  animation: balloonAnimate 3.5s linear infinite 5s;
+}
+#particleContainer > .balloon.b6 {
+  left: 80%;
+  animation: balloonAnimate 3.5s linear infinite 10s;
+}
+
+@keyframes balloonAnimate {
+  0% {
+    bottom: -250px;
+  }
+  100% {
+    bottom: 100%;
+  }
+}
+@keyframes drivePerson {
+  0% {
+    left: -350px;
+  }
+  100% {
+    left: 100%;
+  }
+}
+@keyframes wheelRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes groundAnimation {
+  0% {
+    left: -50px;
+  }
+  100% {
+    left: 20px;
+  }
+}
